@@ -15,15 +15,15 @@ var connection = mysql.createConnection({
 connection.connect(function(err){
     if (err) throw err;
     console.log("connection successful!");
-    // makeTable();
+    makeTable();
 }) 
 
 // print table data to screen
-// var makeTable = function(){
-//     connection.query("SELECT * FROM products", function(err,res){
-//         for (var i=0; i<res.length; i++){
-//         console.log(res[i].itemid+" || "+res[i].productname+" || "+res[i].departmentname+
-//         " || "+res[i].price+" || "+res[i].stockquantity+"\n");    
-//         }
-//     })
-// }
+var makeTable = function(){
+    connection.query("SELECT * FROM products", function(err,res){
+        for (var i=0; i<res.length; i++){
+        console.log(res[i].itemid+" || "+res[i].productname+" || "+
+        res[i].departmentname+" || "+res[i].price+" || "+res[i].stockquantity+"\n");    
+        }
+    })
+}
